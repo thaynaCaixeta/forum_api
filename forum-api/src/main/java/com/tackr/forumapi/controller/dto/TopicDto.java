@@ -1,4 +1,4 @@
-package com.tackr.forumapi.dto;
+package com.tackr.forumapi.controller.dto;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,7 +36,7 @@ public class TopicDto {
 		return createdAt;
 	}
 	
-	public static List<TopicDto> convertFromTopic(List<Topic> topics) {
+	public static List<TopicDto> convert(List<Topic> topics) {
 		return topics.stream().map(TopicDto::new).collect(Collectors.toList());
 	}
 }
