@@ -1,8 +1,8 @@
 package com.tackr.forumapi.controller.dto;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import org.springframework.data.domain.Page;
 
 import com.tackr.forumapi.entity.Topic;
 
@@ -36,7 +36,7 @@ public class TopicDto {
 		return createdAt;
 	}
 	
-	public static List<TopicDto> convert(List<Topic> topics) {
-		return topics.stream().map(TopicDto::new).collect(Collectors.toList());
+	public static Page<TopicDto> convert(Page<Topic> topics) {
+		return topics.map(TopicDto::new);
 	}
 }
