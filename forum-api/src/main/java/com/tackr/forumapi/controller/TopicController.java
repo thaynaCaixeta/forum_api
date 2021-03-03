@@ -43,10 +43,8 @@ public class TopicController {
 
 	@GetMapping
 	public Page<TopicDto> list(@RequestParam(required = false) String courseName,
-			@RequestParam int pageNumber, @RequestParam int itensPerPage) {
-		
-		Pageable pagination = PageRequest.of(pageNumber, itensPerPage);
-		
+			Pageable pagination) {
+				
 		if (courseName != null) {
 			Page<Topic> topics = topicRepository.findByCourseName(courseName, pagination);
 			return TopicDto.convert(topics);
