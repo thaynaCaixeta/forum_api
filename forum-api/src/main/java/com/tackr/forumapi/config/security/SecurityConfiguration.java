@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.tackr.forumapi.config.security.service.AutenticationService;
 import com.tackr.forumapi.config.security.service.TokenService;
+import com.tackr.forumapi.repository.UserRepository;
 
 @EnableWebSecurity
 @Configuration
@@ -26,6 +27,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private TokenService tokenService;
+	
+	@Autowired
+	private UserRepository userRepositoy;
 	
 	@Override
 	@Bean
@@ -47,7 +51,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		.anyRequest().authenticated()
 		.and().csrf().disable()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-		.and().addFilterBefore(new AuthenticationFilterChain(tokenService), UsernamePasswordAuthenticationFilter.class);
+		.and().addFilterBefore(new AuthenticationFilterChain(tokenService, userRepositoy),
+				UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
