@@ -13,23 +13,28 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
 public class TokenService {
-	
+
 	@Value("${forum.jwt.expirationTime}")
 	private String expirationTime;
-	
-	@Value("${forum.jwt.password}")
-	private String password;
+
+	@Value("${forum.jwt.secretKey}")
+	private String secretKey;
 
 	public String generateToken(Authentication authentication) {
 		User user = (User) authentication.getPrincipal();
 		Date today = new Date();
-		return Jwts.builder()
-				.setIssuer("Forum api")
-				.setSubject(user.getId().toString())
-				.setIssuedAt(today)
+		return Jwts.builder().setIssuer("Forum api").setSubject(user.getId().toString()).setIssuedAt(today)
 				.setExpiration(new Date(today.getTime() + Long.parseLong(expirationTime)))
-				.signWith(SignatureAlgorithm.HS256, password)
-				.compact();
+				.signWith(SignatureAlgorithm.HS256, secretKey).compact();
 	}
 
+	public boolean isTokenValid(String token) {
+		try {
+			Jwts.parser().setSigningKey(this.secretKey).parseClaimsJws(token);
+			return true;
+
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

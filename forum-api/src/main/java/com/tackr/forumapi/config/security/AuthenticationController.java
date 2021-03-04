@@ -1,4 +1,4 @@
-package com.tackr.forumapi.controller;
+package com.tackr.forumapi.config.security;
 
 import javax.validation.Valid;
 
@@ -19,7 +19,7 @@ import com.tackr.forumapi.controller.form.LoginForm;
 
 @RestController
 @RequestMapping("/auth")
-public class AutenticationController {
+public class AuthenticationController {
 
 	@Autowired
 	private AuthenticationManager authManager;
