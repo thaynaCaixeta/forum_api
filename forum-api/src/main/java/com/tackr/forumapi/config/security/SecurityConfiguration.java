@@ -21,7 +21,7 @@ import com.tackr.forumapi.repository.UserRepository;
 
 @EnableWebSecurity
 @Configuration
-@Profile("PRODUCTION")
+@Profile(value = {"prod", "test"})
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired

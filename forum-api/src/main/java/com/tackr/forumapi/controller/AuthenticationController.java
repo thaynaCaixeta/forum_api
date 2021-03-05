@@ -1,4 +1,4 @@
-package com.tackr.forumapi.config.security;
+package com.tackr.forumapi.controller;
 
 import javax.validation.Valid;
 
@@ -20,7 +20,7 @@ import com.tackr.forumapi.controller.form.LoginForm;
 
 @RestController
 @RequestMapping("/auth")
-@Profile("PRODUCTION")
+@Profile(value = {"prod", "test"})
 public class AuthenticationController {
 
 	@Autowired
