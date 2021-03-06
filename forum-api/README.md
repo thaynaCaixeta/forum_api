@@ -7,9 +7,9 @@ The following was discovered as part of building this project:
 
 #Build path variables dev environment
 
--DSpring.profiles.active=dev
--DFORUM-DATABASE_URL=jdbc:mysql://localhost:3306/forum-api?useTimezone=true&serverTimezone=UTC
--DFORUM-DATABASE.USER=root
--DFORUM-DATABASE_PASSWORD=senha
+-DSpring.profiles.active=prd
+-DCLEARDB_DATABASE_URL=jdbc:mysql://us-cdbr-east-03.cleardb.com:3306/heroku_a135dc6426f8395
+-DCLEARDB_DATABASE_USER=b32e60c3eb8108
+-DCLEARDB_DATABASE_PASSWORD=37cc8493
 -DFORUM-JWT_SECRET_PASSWORD=$2y$12$.HQhp2nvZ50pxX4zPIOl6uK6FU.0bkKV.5JDtK0uqShsxN2vJN1A6
--DFORUM-SPRING_ADMIN_CLIENT_URL=http://localhost:8081
+-DPORT:8080
