@@ -12,4 +12,4 @@ The following was discovered as part of building this project:
 -DCLEARDB_DATABASE_USER=b32e60c3eb8108
 -DCLEARDB_DATABASE_PASSWORD=37cc8493
 -DFORUM-JWT_SECRET_PASSWORD=$2y$12$.HQhp2nvZ50pxX4zPIOl6uK6FU.0bkKV.5JDtK0uqShsxN2vJN1A6
--DPORT:8080
+-DServer.port:8080
