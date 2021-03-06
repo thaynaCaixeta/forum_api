@@ -1,7 +1,6 @@
 # Read Me First
-The following was discovered as part of building this project:
+Porject can be access in the follow address: https://spring-boot-forum-api.herokuapp.com/topic
 
-* The original package name 'com.tackr.forum-api' is invalid and this project uses 'com.tackr.forumapi' instead.
 
 # Getting Started
 
