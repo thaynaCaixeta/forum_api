@@ -6,11 +6,11 @@ import org.springframework.context.annotation.Configuration;
 
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 
+
 @Configuration
 @EnableAutoConfiguration
 @EnableAdminServer
 public class ForumApiAdminApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(ForumApiAdminApplication.class, args);
 	}
